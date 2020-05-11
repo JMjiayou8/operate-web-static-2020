@@ -1,0 +1,127 @@
+/* 公共样式类 */
+html,
+body {
+  font-family: "MicrosoftYaHei";
+  font-size: 14px;
+  color: #666;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-table;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+  height: 1%;
+  zoom: 1;
+}
+
+.clearfix {
+  display: block;
+}
+
+/* End hide from IE-mac */
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.common-page {
+  background: rgb(235, 235, 235);
+  padding: 20px;
+}
+
+/* todo */
+.common-card {
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.common-card .title {}
+
+.common-card .title .big-title {
+  font-size: 14px;
+  line-height: 20px;
+  color: red;
+  position: relative;
+}
+
+.common-card .title .big-title::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: red;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+
+.common-card .title .sub-title {
+  font-size: 13px;
+  color: #333;
+}
+
+.common-card .desc {
+  font-size: 12px;
+  color: #333;
+}
+
+
+.card-top {}
+
+.card-top .title {}
+
+.card-top .link {}
+
+.card-body {}
+
+.card-body .data-box {
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.data-num {
+  color: red;
+  font-size: 14px;
+}
+
+.data-num .unit {
+  font-size: 12px;
+}
+
+.data-title {
+  color: #333;
+  font-size: 12px;
+}
+
+.filter-wrap {
+  margin-bottom: 20px;
+}
