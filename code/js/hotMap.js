@@ -1,10 +1,7 @@
-layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table'], function () {
-  var laytpl = layui.laytpl,
-    form = layui.form,
-    laydate = layui.laydate,
-    $ = layui.jquery,
+layui.use(['jquery', 'table'], function () {
+  var $ = layui.jquery,
     table = layui.table;
-  function renderTable () {
+  function renderPage () {
     table.render({
       elem: '#table1',
       url: '/mockData/area.json',
@@ -114,6 +111,6 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table'], function () {
     })
   }
   $(function () {
-    renderTable()
+    renderPage()
   })
 })
