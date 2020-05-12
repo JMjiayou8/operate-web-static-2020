@@ -51,7 +51,7 @@ a {
 /********************* 页面样式 *********************/
 .common-page {
   background: #ebebec;
-  padding: 30px ;
+  padding: 30px;
 }
 
 .common-card {
@@ -101,6 +101,10 @@ a {
   color: #3f63ff;
 }
 
+.card-body {
+  position: relative;
+}
+
 .card-body .data-box {
   border: 1px solid rgb(210, 210, 210);
   border-radius: 4px;
@@ -140,8 +144,8 @@ a {
 }
 
 .trend.down {
-  border-width:  10px 10px 0;
-  border-color: #f66767 transparent transparent ;
+  border-width: 10px 10px 0;
+  border-color: #f66767 transparent transparent;
 }
 
 .filter-wrap {
@@ -239,4 +243,20 @@ a {
   height: 30px;
   line-height: 30px;
   padding: 0;
+}
+
+.hotMap-table {
+  width: 280px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.hotMap-table .layui-table-view,
+.hotMap-table th {
+  border: 0;
+}
+
+.hotMap-table td {
+  border-width: 0 0 1px 0;
 }
