@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>异动特征预测</title>
+    <link
+      rel="stylesheet"
+      href="../js/third/layui-v2.5.6/layui/css/layui.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/common.css" />
+  </head>
+
+  <body>
+    <div class="common-page">
+      <form class="layui-form filter-wrap">
+        <div class="layui-form-item">
+          <button
+            type="button"
+            class="layui-btn layui-btn-primary layui-btn-user"
+            onclick="setUserType(this,'all')"
+          >
+            <i class="user-icon"></i>全量用户
+          </button>
+        </div>
+        <div id="filter-user" class="layui-form-item filter-user"></div>
+      </form>
+      <div class="common-card">
+        <div class="card-body">
+          <div
+            class="layui-tab layui-tab-brief common-tab"
+            lay-filter="tabBrief"
+          >
+            <ul class="layui-tab-title">
+              <li class="layui-this">主套餐特征分析</li>
+              <li>异动原因特征分析</li>
+              <li>余额特征分析</li>
+              <li>在网时长特征分析</li>
+              <li>套餐使用特征分析</li>
+            </ul>
+            <div class="layui-tab-content" id="tabContent"></div>
+          </div>
+        </div>
+        <div class="card-bottom clearfix choosed-wrap" id="choosedWrap"></div>
+      </div>
+      <div class="page-bottom-btns">
+        <button type="button" class="layui-btn layui-btn-lg layui-btn-red">配置维系策略</button>
+        <button type="button" class="layui-btn layui-btn-lg layui-btn-blue">加入看管池</button>
+        <button type="button" class="layui-btn layui-btn-lg layui-btn-green">发起问卷调查</button>
+      </div>
+    </div>
+    <!--看管用户下拉-->
+    <script id="filterUserHtml" type="text/html">
+      <i class="user-icon2"></i>
+      <select name="userType2" name="userType2" lay-filter="userType2">
+        <option value="">看管用户</option>
+        {{#  layui.each(d.list, function(index, item){ }}
+        <option value="{{item.id}}" extraData="{data:'{{item.data}}人'}">
+          {{item.title}}
+        </option>
+        {{# }); }}
+      </select>
+      <span class="layui-badge">{{d.abnormalNum}}</span>
+    </script>
+    <!--图表和表格  -->
+    <script id="tabContentHtml" type="text/html">
+      {{#  layui.each(d.list, function(index, item){ }}
+      <div class="layui-tab-item {{d.activeIndex==index?'layui-show':''}}">
+        <p>{{item.desc}}</p>
+        <div class="layui-row">
+          <div class="layui-col-md5">
+            <div id="chart{{index}}" style="width:100%;height:450px;"></div>
+          </div>
+          <div class="layui-col-md7 common-table">
+            <table class="layui-hide" id="table{{index}}"></table>
+          </div>
+        </div>
+      </div>
+      {{# }); }}
+    </script>
+    <!-- 选择的目标客户 -->
+    <script id="choosedHtml" type="text/html">
+        <div class="fl text">选择的目标客户：</div>
+        <ul  class=" clearfix fl">
+        {{#  layui.each(d.list, function(index, item){ }}
+        <li class="fl">
+          <span class="param-text">{{item.param1}}</span>
+          <span class="param-i" style="display:{{index==d.list.length-1?'none':'inline-block'}}">&</span>
+        </li>
+        {{# }); }}
+      </ul>
+        <div class="fl text">共计:<span class="total-text">{{d.total}}人</span></div>
+    </script>
+
+    <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
+    <script src="../js/third/echarts/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/featureAnalysis.js"></script>
+  </body>
+</html>

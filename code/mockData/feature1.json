@@ -1,0 +1,77 @@
+{
+  "code": 0,
+  "count": 10,
+  "msg": "",
+  "data": [
+    {
+      "param1": "套餐0",
+      "param2": 1923,
+      "param3": 1500,
+      "param4": "11%",
+      "param5": "0.04"
+    },
+    {
+      "param1": "套餐1",
+      "param2": 1716,
+      "param3": 15,
+      "param4": "20%",
+      "param5": "0.77"
+    },
+    {
+      "param1": "套餐2",
+      "param2": 1941,
+      "param3": 491,
+      "param4": "51%",
+      "param5": "0.48"
+    },
+    {
+      "param1": "套餐3",
+      "param2": 1261,
+      "param3": 380,
+      "param4": "26%",
+      "param5": "0.47"
+    },
+    {
+      "param1": "套餐4",
+      "param2": 1387,
+      "param3": 1891,
+      "param4": "49%",
+      "param5": "0.10"
+    },
+    {
+      "param1": "套餐5",
+      "param2": 1829,
+      "param3": 714,
+      "param4": "18%",
+      "param5": "0.92"
+    },
+    {
+      "param1": "套餐6",
+      "param2": 358,
+      "param3": 1348,
+      "param4": "71%",
+      "param5": "0.33"
+    },
+    {
+      "param1": "套餐7",
+      "param2": 636,
+      "param3": 1662,
+      "param4": "41%",
+      "param5": "0.74"
+    },
+    {
+      "param1": "套餐8",
+      "param2": 1782,
+      "param3": 1722,
+      "param4": "6%",
+      "param5": "0.43"
+    },
+    {
+      "param1": "套餐9",
+      "param2": 262,
+      "param3": 1176,
+      "param4": "24%",
+      "param5": "0.60"
+    }
+  ]
+}

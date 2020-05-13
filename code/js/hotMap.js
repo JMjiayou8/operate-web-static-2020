@@ -33,15 +33,16 @@ layui.use(['jquery', 'table'], function () {
       var option = {
         tooltip: {
           trigger: "item",
-          position: function (point, params, dom, rect, size) {
+          formatter: function (params) {
             var item = data.find(function (obj) { return obj.areaName == params.name })
             var html = '<div class="mapTooltip">' +
+              '<div class="line"></div>'+
               '<p>地市：<span class="data">' + item.areaName + '</span></p>' +
               '<p>离网用户：<span class="data">' + item.param1 + '</span></p>' +
               '<p>月累计：<span class="data">' + item.param2 + '</span></p>' +
               '<p>预计降收：<span class="data">' + item.param3 + '万元</span></p>' +
               '</div>'
-            $(dom).html(html)
+            return html;
           },
           backgroundColor: '#f0f4f8',
           textStyle: {
@@ -104,7 +105,6 @@ layui.use(['jquery', 'table'], function () {
             geoIndex: 0,
             data: mapData
           }
-
         ]
       };
       myChart.setOption(option);

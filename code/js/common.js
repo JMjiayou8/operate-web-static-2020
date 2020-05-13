@@ -81,3 +81,70 @@ function renderLineChart (id, xAxisData, data) {
   };
   chart.setOption(option, true);
 }
+// 异动特征柱状图
+function renderFeatureBarChart (id, yAxisData, data) {
+  var chart = echarts.init(document.getElementById(id))
+  var grayColor = '#979797';
+  //指定图表配置项和数据
+  var option = {
+    color: ['#5c9eff'],
+    grid: {
+      containLabel: true,
+      top: 20,
+      bottom: 0,
+      left: 0,
+    },
+    xAxis: {
+      type: 'value',
+      axisLabel: {
+        color: grayColor
+      },
+      axisLine: {
+       lineStyle: {
+          color: grayColor
+        }
+      },
+      axisTick: {
+        color: grayColor
+      },
+      splitLine: {
+        lineStyle: {
+          type: 'dashed',
+          color: grayColor
+        }
+      }
+    },
+    yAxis: {
+      type: 'category',
+      data: yAxisData,
+      axisLabel: {
+        color: grayColor
+      },
+      axisLine: {
+        lineStyle: {
+          color: grayColor
+        }
+      },
+      axisTick: {
+        show: true
+      }
+    },
+    series: [{
+      data: data,
+      type: 'bar',
+      barMaxWidth:20,
+      itemStyle: {
+        barBorderRadius:10,
+        //左、下、右、上
+        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+          offset: 0,
+          color: '#d89a51'
+        }, {
+          offset: 1,
+          color: '#f9b161'
+        }])
+      },
+    }]
+  };
+  chart.setOption(option, true);
+}
