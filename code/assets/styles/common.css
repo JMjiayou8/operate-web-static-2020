@@ -360,3 +360,119 @@ a {
 .layui-btn.layui-btn-green{
   background-color: #01a6bc;
 }
+
+/* 边框风格checkbox */
+.layui-form-item .layui-form-checkbox[lay-skin=box] {
+  border: 1px solid #d2d2d2;
+  padding: 0;
+  border-radius: 5px;
+  height: 36px;
+  line-height: 34px;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin=box] span {
+  display: inline-block;
+  background: #fff;
+  color: #333;
+  padding: 0;
+  padding: 0 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin=box] span::before {
+  content: '●';
+  margin-right: 5px;
+  color: #bababa;
+  font-size: 12px;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin=box] i {
+  display: none;
+}
+
+.layui-form-item .layui-form-checked[lay-skin=box],
+.layui-form-item .layui-form-checked[lay-skin=box]:hover {
+  background: #fff;
+  border-color: #c30621;
+}
+
+.layui-form-item .layui-form-checked[lay-skin=box] span,
+.layui-form-item .layui-form-checked[lay-skin=box]:hover span {
+  color: #c30621 !important;
+}
+
+.layui-form-item .layui-form-checked[lay-skin=box] span::before {
+  content: "✓";
+  color: #c30621;
+  font-size: 14px;
+}
+/* 页面顶部步骤step */
+.step-page{
+  padding: 0;
+}
+.step-page .layui-tab{
+  margin: 0;
+}
+.step-page .step-top-wrap {
+  background-image: -moz-linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
+  background-image: -webkit-linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
+  background-image: -ms-linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
+  background-image: linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  padding: 40px 0;
+  height: 130px;
+  padding: 20px 33% 10px 0;
+  width: auto;
+}
+
+.step-page .step-top-wrap .layui-tab-title {
+  border: 0;
+}
+.step-page .layui-tab-content{
+  padding: 20px 30px;
+}
+
+
+.step-page .step-item {
+  cursor: pointer;
+  color: #fff;
+}
+
+.step-page .step-item::after {
+  content: "";
+  width: 60%;
+  display: inline-block;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 36px;
+  left: 70%;
+}
+
+.step-page .step-item-last::after,
+.step-page .step-item-last.layui-this::after {
+  width: 0;
+  border: 0;
+}
+
+.step-page .step-item .step-icon {
+  width: 72px;
+  height: 72px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.step-page .step-item.layui-this .step-icon {
+  border: 1px solid #ec6c3f;
+}
+.step-page .step-text {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 30px;
+}

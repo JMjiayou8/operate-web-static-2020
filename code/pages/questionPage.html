@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>发起问卷调查</title>
+    <link
+      rel="stylesheet"
+      href="../js/third/layui-v2.5.6/layui/css/layui.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/common.css" />
+    <style>
+      .step-page .step-item .step-icon.step1 {
+        background: url('../assets/images/step/step1.png') #fff no-repeat center;
+      }
+
+      .step-page .step-item .step-icon.step2 {
+        background: url('../assets/images/step/step2.png') #fff no-repeat center;
+      }
+
+      .step-page .step-item .step-icon.step3 {
+        background: url('../assets/images/step/step3.png') #fff no-repeat center;
+      }
+      .step-page .step-item .step-icon.step4 {
+        background: url('../assets/images/step/step4.png') #fff no-repeat center;
+      }
+      .step-page .step-item.layui-this .step-icon.step1 {
+        background: url('../assets/images/step/step1-active.png') #fff no-repeat
+          center;
+      }
+      .step-page .step-item.layui-this .step-icon.step2 {
+        background: url('../assets/images/step/step2-active.png') #fff no-repeat
+          center;
+      }
+      .step-page .step-item.layui-this .step-icon.step3 {
+        background: url('../assets/images/step/step3-active.png') #fff no-repeat
+          center;
+      }
+      .step-page .step-item.layui-this .step-icon.step4 {
+        background: url('../assets/images/step/step4-active.png') #fff no-repeat
+          center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="common-page step-page">
+      <div class="layui-tab" lay-filter="pageTab">
+        <ul class="layui-tab-title layui-row step-top-wrap">
+          <li
+            class="layui-this layui-col-md3 step-item step-item-first"
+            lay-id="11"
+          >
+            <i class="step-icon step1"></i>
+            <p class="step-text">选择客户群</p>
+          </li>
+          <li class="layui-col-md3 step-item" lay-id="22">
+            <i class="step-icon step2"></i>
+            <p class="step-text">创建问卷</p>
+          </li>
+          <li class="layui-col-md3 step-item" lay-id="33">
+            <i class="step-icon step3"></i>
+            <p class="step-text">问卷预览</p>
+          </li>
+          <li class="layui-col-md3 step-item step-item-last" lay-id="44">
+            <i class="step-icon step4"></i>
+            <p class="step-text">发布问卷</p>
+          </li>
+        </ul>
+        <div class="layui-tab-content">
+          <div class="layui-tab-item layui-show">
+            <div class="layui-row layui-col-space30" id="dataBoxWrap"></div>
+            <div class="page-bottom-btns">
+              <button
+                type="button"
+                class="layui-btn layui-btn-lg layui-btn-red"
+              >
+                下一步
+              </button>
+            </div>
+          </div>
+          <div class="layui-tab-item">
+            创建问卷
+            <div class="page-bottom-btns">
+              <button
+                type="button"
+                class="layui-btn layui-btn-lg layui-btn-red"
+              >
+                下一步
+              </button>
+            </div>
+          </div>
+          <div class="layui-tab-item">
+            问卷预览
+            <div class="page-bottom-btns">
+              <button
+                type="button"
+                class="layui-btn layui-btn-lg layui-btn-red"
+              >
+                下一步
+              </button>
+            </div>
+          </div>
+          <div class="layui-tab-item">
+            发布问卷
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- chart 区域 -->
+    <script id="dataBoxHtml" type="text/html">
+      <div class="layui-col-md12">
+        <div class="common-card">
+          <div class="card-body">
+            <form class="layui-form">
+              <div class="layui-form-item">
+                <label class="layui-form-label">异动范围：</label>
+                <div class="layui-input-block ">
+                  <input type="checkbox" value="1" lay-skin="box" title="离网" />
+                  <input type="checkbox" value="2" lay-skin="box" title="降套" />
+                  <input type="checkbox" value="3" lay-skin="box" title="携转" />
+                  <input type="checkbox" value="4" lay-skin="box" title="合约未续约" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      {{#  layui.each(d, function(index, item){ }}
+      <div class="layui-col-md6">
+        <div class="common-card">
+          <div class="card-top clearfix">
+            <div class="title fl">
+              <p class="big-title">{{item.title}}</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-wrap common-table">
+              <table id="table{{item.id}}" class="layui-hide"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{# }); }}
+    </script>
+    <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
+    <script src="../js/third/echarts/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/questionPage.js"></script>
+  </body>
+</html>
