@@ -33,10 +33,12 @@ layui.use(['jquery', 'table'], function () {
       var option = {
         tooltip: {
           trigger: "item",
+          enterable:true,
+          // alwaysShowContent:true,
           formatter: function (params) {
             var item = data.find(function (obj) { return obj.areaName == params.name })
             var html = '<div class="mapTooltip">' +
-              '<div class="line"></div>'+
+              '<div class="head-link"><a href="javascript:;" class="tooltip-link" onclick="showDetail(\''+item.areaName+'\')">详情</a></div>'+
               '<p>地市：<span class="data">' + item.areaName + '</span></p>' +
               '<p>离网用户：<span class="data">' + item.param1 + '</span></p>' +
               '<p>月累计：<span class="data">' + item.param2 + '</span></p>' +
@@ -49,7 +51,7 @@ layui.use(['jquery', 'table'], function () {
             color: '#666',
             fontSize: 14
           },
-          extraCssText: 'padding:20px;'
+          extraCssText: 'padding:20px;min-width:200px;'
         },
         visualMap: {
           top: "bottom",
@@ -109,6 +111,36 @@ layui.use(['jquery', 'table'], function () {
       };
       myChart.setOption(option);
     })
+  }
+  //展示地市详情
+  window.showDetail=function(name){
+    layer.open({
+      type: 1,
+      title: name,
+      area: '1000px',
+      offset: '100px',
+      skin:'toolTip-layer',
+      shadeClose: true,
+      content: $('#toolTip-table'),
+      success:function(){
+        table.render({
+          elem: '#tooltip-table',
+          url: '/mockData/toolTipTable.json',
+          where:{
+            areaName:name
+          },
+          page:true,
+          cols: [[
+            { field: 'param1', title: '手机号码'},
+            { field: 'param2', title: '姓名' },
+            { field: 'param3', title: '主套餐'},
+            { field: 'param4', title: '月均消费' },
+            { field: 'param5', title: '稳定度评分' }
+          ]]
+        });
+      }
+    });
+    
   }
   $(function () {
     renderPage()
