@@ -1,10 +1,11 @@
 //一般直接写在一个js文件中
-layui.use(['form', 'laytpl', 'jquery','table','element'], function () {
+layui.use(['form', 'laytpl', 'jquery', 'table', 'element'], function () {
   var laytpl = layui.laytpl,
     $ = layui.jquery,
-    table=layui.table,
-    element=layui.element,
+    table = layui.table,
+    element = layui.element,
     form = layui.form;
+    var questList=[]
 
   // 渲染选择客户群
   function renderStepPage1 () {
@@ -66,7 +67,82 @@ layui.use(['form', 'laytpl', 'jquery','table','element'], function () {
     });
   }
 
-  $(function () {
-    renderStepPage1()
-  })
+  function renderStepPage2 () {
+    var data = [
+      // {
+      //   itemType: 'radio', //类型
+      //   itemCode: '1', //编码
+      //   itemDesc: 'radioTest', //名称
+      //   isRequired: false, //是否必填
+      //   options: [{ //描述
+      //     optionDes: '',
+      //     optionId: '0'
+      //   }, {
+      //     optionDes: '',
+      //     optionId: '1'
+      //   }],
+      //   itemGrade: '1', //级别
+      // },
+      // {
+      //   itemType: 'checkbox', //类型
+      //   itemCode: '2', //编码
+      //   itemDesc: 'checkboxTest', //名称
+      //   isRequired: true, //是否必填
+      //   options: [{ //描述
+      //     optionDes: '',
+      //     optionId: '0'
+      //   }, {
+      //     optionDes: '',
+      //     optionId: '1'
+      //   }],
+      //   itemGrade: '1', //级别
+      // },
+      // {
+      //   itemType: 'text', //类型
+      //   itemCode: '3', //编码
+      //   itemDesc: 'textTest', //名称
+      //   isRequired: true, //是否必填
+      //   itemGrade: '1', //级别
+      // },
+      // {
+      //   itemType: 'rate-single', //类型
+      //   itemCode: '4', //编码
+      //   itemDesc: '', //名称
+      //   isRequired: false, //是否必填
+      //   options: [{ //描述
+      //     optionDes: '',
+      //     optionId: '0'
+      //   }],
+      //   itemGrade: '1', //级别
+      // },
+      // {
+      //   itemType: 'rate-multi', //类型
+      //   itemCode: '5', //编码
+      //   itemDesc: '', //名称
+      //   isRequired: false, //是否必填
+      //   options: [{ //描述
+      //     optionDes: '',
+      //     optionId: '0'
+      //   }],
+      //   itemGrade: '1', //级别
+      // }
+    ]
+    var getTpl = questBodyHtml.innerHTML, wrap = document.getElementById('questBodyWrap');
+    laytpl(getTpl).render(questList, function (html) {
+      wrap.innerHTML = html;
+      form.render()
+
+    });
+  }
+  element.on('tab(pageTab)', function (obj) {
+    if (obj.index == 0) {
+      renderStepPage1()
+    } else if (obj.index == 1) {
+      renderStepPage2()
+    }
+  });
+  //默认打开tab
+  element.tabChange('pageTab', '11');
+
+ 
 });

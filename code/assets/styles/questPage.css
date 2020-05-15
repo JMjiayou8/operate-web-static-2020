@@ -1,0 +1,198 @@
+.step-page .step-item .step-icon.step1 {
+  background: url('../images/step/step1.png') #fff no-repeat center;
+}
+
+.step-page .step-item .step-icon.step2 {
+  background: url('../images/step/step2.png') #fff no-repeat center;
+}
+
+.step-page .step-item .step-icon.step3 {
+  background: url('../images/step/step3.png') #fff no-repeat center;
+}
+
+.step-page .step-item .step-icon.step4 {
+  background: url('../images/step/step4.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step1 {
+  background: url('../images/step/step1-active.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step2 {
+  background: url('../images/step/step2-active.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step3 {
+  background: url('../images/step/step3-active.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step4 {
+  background: url('../images/step/step4-active.png') #fff no-repeat center;
+}
+
+/* 创建问卷 */
+.tab-card {
+  padding: 20px 10px;
+}
+
+.tab-card .common-tab .layui-tab-title li,
+.tab-card .common-tab .layui-tab-title .layui-this {
+  margin: 0;
+}
+
+.quest-card {
+  padding: 0;
+}
+
+.quest-card .quest-top {
+  padding: 20px 30px;
+}
+
+.quest-top .quest-title {
+  background: #f0f4f8;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.quest-card .quest-body {
+  box-shadow: 0px -5px 10px -5px rgba(226, 226, 226, 1);
+  padding: 20px 30px;
+}
+
+.quest-body .input-title-wrap {
+  margin-bottom: 10px;
+}
+
+.quest-body .input-title-wrap .input-title {
+  border-width: 0 0 1px 0;
+}
+
+.quest-body .layui-form-label {
+  width: 10px;
+}
+
+.quest-body .layui-input-block {
+  margin-left: 40px;
+}
+
+.box-inline {
+  margin: 10px 0 10px 40px;
+}
+
+.box-inline .layui-input {
+  max-width: 380px;
+  display: inline-block;
+}
+
+.box-inline .type-icon {
+  border: 1px solid rgb(181, 181, 181);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.box-inline .type-icon.circle-icon {
+  border-radius: 50%;
+}
+
+.box-inline .type-icon.square-icon {
+  border-radius: 5px;
+}
+
+.box-inline .layui-icon {
+  cursor: pointer;
+  color: rgb(181, 181, 181);
+  font-size: 22px;
+}
+
+.option-icon {
+  display: inline-block;
+  cursor: pointer;
+  margin:0 10px;
+  vertical-align: middle;
+}
+
+.option-icon.option-add {
+  width: 19px;
+  height: 19px;
+  background: url('../images/option-op.png') -49px -10px;
+}
+
+.option-icon.option-del {
+  width: 19px;
+  height: 19px;
+  background: url('../images/option-op.png') -10px -10px;
+}
+
+.option-icon.option-up {
+  width: 15px;
+  height: 17px;
+  background: url('../images/option-op.png') -10px -49px;
+}
+
+.option-icon.option-down {
+  width: 14px;
+  height: 17px;
+  background: url('../images/option-op.png') -45px -49px;
+}
+
+.operate-wrap {
+  background: #f0f4f8;
+  border-radius: 2px;
+  padding: 10px 40px;
+}
+.operate-wrap input{
+  margin-right: 5px;
+}
+.item-op {
+  cursor: pointer;
+  margin:0 20px;
+}
+
+.item-op .item-icon {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.item-op .item-icon.item-link {
+  width: 17px;
+  height: 17px;
+  background: url('../images/item-op.png') -48px -10px;
+}
+
+.item-op .item-icon.item-del {
+  width: 18px;
+  height: 18px;
+  background: url('../images/item-op.png') -10px -10px;
+}
+
+.item-op .item-icon.item-up {
+  width: 15px;
+  height: 18px;
+  background: url('../images/item-op.png') -10px -48px;
+}
+
+.item-op .item-icon.item-down {
+  width: 15px;
+  height: 18px;
+  background: url('../images/item-op.png') -85px -10px;
+}
+
+.item-op a{
+  text-decoration: underline;
+  font-size: 14px;
+  color: #666;
+}
+.noData{
+  width: 350px;
+  margin: 150px auto;
+  height: 200px;
+  background: url(../images/noData.png) no-repeat center;
+  background-size: contain;
+}
