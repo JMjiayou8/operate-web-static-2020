@@ -328,6 +328,7 @@ layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer'], function ()
   window.nextPage2 = function () {
     console.log('第二步数据===', questPageData)
     element.tabChange('pageTab', '33');
+    renderPhone()
   }
   /******************************************************* 问卷预览 *******************************************************/
   function renderComputer () {
@@ -354,8 +355,6 @@ layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer'], function ()
       renderComputer()
     }
   });
-  element.tabChange('tabPhoneComputer', '11');
-  renderPhone()
   /******************************************************* tab操作 *******************************************************/
   element.on('tab(pageTab)', function (obj) {
     if (obj.index == 0) {
@@ -365,7 +364,7 @@ layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer'], function ()
     }
   });
   //默认打开tab
-  element.tabChange('pageTab', '33');
+  element.tabChange('pageTab', '11');
 
 
 });
