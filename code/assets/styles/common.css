@@ -47,6 +47,9 @@ a {
 .text-center {
   text-align: center;
 }
+.noMargin{
+  margin:0!important;
+}
 
 /********************* 页面样式 *********************/
 .common-page {
@@ -60,7 +63,7 @@ a {
 }
 /* 常规卡片 */
 .common-card {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid rgb(229, 229, 229);
   border-radius: 5px;
   padding: 20px 30px;

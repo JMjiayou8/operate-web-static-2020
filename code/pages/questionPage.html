@@ -108,11 +108,28 @@
             </button>
           </div>
         </div>
-        <div class="layui-tab-item">
-          问卷预览
+        <div class="layui-tab-item noMargin">
+          <div class="layui-tab layui-tab-brief phoneComputer-tab" lay-filter="tabPhoneComputer">
+            <ul class="layui-tab-title ">
+              <li class="layui-this  " lay-id="11">
+                <i class="tab-icon phone"></i>手机端预览</li>
+              <li  lay-id="22">
+                <i class="tab-icon computer"></i>电脑端预览</li>
+            </ul>
+            <div class="layui-tab-content">
+              <div class="layui-tab-item layui-show">
+                <div class="phone-tabContent">
+                  <div id="phoneWrap" class="phoneWrap"></div>
+                </div>
+              </div>
+              <div class="layui-tab-item">
+                <div class="common-card computer" id="computerWrap"></div>
+              </div>
+            </div>
+          </div>
           <div class="page-bottom-btns">
-            <button type="button" class="layui-btn layui-btn-lg layui-btn-red">
-              下一步
+            <button type="button" class="layui-btn layui-btn-lg layui-btn-red" onclick="nextPage3()">
+              发布问卷
             </button>
           </div>
         </div>
@@ -312,6 +329,117 @@
         <li class="outline-item">{{index+1}}、{{item}}</li>
       {{# }); }}
   </script>
+  <!-- 手机端预览 -->
+  <script id="phoneHtml" type="text/html">
+    <p class="questTitle">{{d.questTitle}}</p>
+    <form class="layui-form preview-wrap">
+      {{#  layui.each(d.questList, function(index, item){ }}
+      <div class="layui-form-item">
+        <p class="layui-form-label preview-title {{item.isRequired?'required':''}}">{{index+1}}、{{item.itemDesc}}：</p>
+        {{#  if('radio' == item.itemType){ }}
+            <div class="box-inline layui-row">
+              {{#  layui.each(item.options, function(ii, obj){ }}
+              <div class="layui-col-md6">
+                 <input type="radio" name="radio{{index}}" value="{{obj.optionId}}" title="{{obj.optionDes}}" >
+              </div>
+              {{# }); }}
+            </div>
+        {{#  }else if('checkbox' == item.itemType){ }}
+          <div class="box-inline layui-row">
+            {{#  layui.each(item.options, function(ii, obj){ }}
+            <div class="layui-col-md6">
+                <input type="checkbox" name="checkbox{{index}}" lay-skin="primary" title="{{obj.optionDes}}" >
+            </div>
+            {{# }); }} 
+          </div>
+        {{#  }else if('text' == item.itemType){ }}
+            <div class="layui-input-block">
+              <input
+                type="text"
+                name="title"
+                class="layui-input "
+              />
+            </div>
+        {{#  }else if('rateSingle' == item.itemType){ }}
+          <div class="box-inline layui-row">
+            {{#  layui.each(item.options, function(ii, obj){ }}
+              <div class="layui-col-md6">
+                <input type="radio" name="rateSingle{{index}}" value="{{obj.optionDes}}" title="{{obj.optionDes}}-{{obj.rateNum}}分" >
+              </div>
+            {{# }); }}
+          </div>
+        {{#  }else if('rateMulti' == item.itemType){ }}
+          <div class="box-inline layui-row">
+            {{#  layui.each(item.options, function(ii, obj){ }}
+              <div class="layui-col-md6">
+                <input type="checkbox" name="rateMulti{{index}}" lay-skin="primary" title="{{obj.optionDes}}-{{obj.rateNum}}分">
+              </div>
+              {{# }); }}
+          </div>
+        {{# } }}
+      </div>
+      {{# }); }}
+      <div class="submit-btn">
+        <button onclick="return false;">提交</button>
+      </div>
+  </form>
+  </script>
+  <!-- 电脑端预览 -->
+  <script id="computerHtml" type="text/html">
+      <p class="questTitle">{{d.questTitle}}</p>
+      <form class="layui-form preview-wrap">
+        {{#  layui.each(d.questList, function(index, item){ }}
+        <div class="layui-form-item">
+          <p class="layui-form-label preview-title {{item.isRequired?'required':''}}">{{index+1}}、{{item.itemDesc}}：</p>
+          {{#  if('radio' == item.itemType){ }}
+              <div class="box-inline layui-row">
+                {{#  layui.each(item.options, function(ii, obj){ }}
+                <div class="layui-col-md3">
+                   <input type="radio" name="radio{{index}}" value="{{obj.optionId}}" title="{{obj.optionDes}}" >
+                </div>
+                {{# }); }}
+              </div>
+          {{#  }else if('checkbox' == item.itemType){ }}
+            <div class="box-inline layui-row">
+              {{#  layui.each(item.options, function(ii, obj){ }}
+              <div class="layui-col-md3">
+                  <input type="checkbox" name="checkbox{{index}}" lay-skin="primary" title="{{obj.optionDes}}" >
+              </div>
+              {{# }); }} 
+            </div>
+          {{#  }else if('text' == item.itemType){ }}
+              <div class="layui-input-block">
+                <input
+                  type="text"
+                  name="title"
+                  class="layui-input "
+                />
+              </div>
+          {{#  }else if('rateSingle' == item.itemType){ }}
+            <div class="box-inline layui-row">
+              {{#  layui.each(item.options, function(ii, obj){ }}
+                <div class="layui-col-md3">
+                  <input type="radio" name="rateSingle{{index}}" value="{{obj.optionDes}}" title="{{obj.optionDes}}-{{obj.rateNum}}分" >
+                </div>
+              {{# }); }}
+            </div>
+          {{#  }else if('rateMulti' == item.itemType){ }}
+            <div class="box-inline layui-row">
+              {{#  layui.each(item.options, function(ii, obj){ }}
+                <div class="layui-col-md3">
+                  <input type="checkbox" name="rateMulti{{index}}" lay-skin="primary" title="{{obj.optionDes}}-{{obj.rateNum}}分">
+                </div>
+                {{# }); }}
+            </div>
+          {{# } }}
+        </div>
+        {{# }); }}
+        <div class="submit-btn">
+          <button onclick="return false;">提交</button>
+        </div>
+    </form>
+  </script>
+
   <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
   <script src="../js/third/echarts/echarts.min.js"></script>
   <script src="../js/common.js"></script>

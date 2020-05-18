@@ -30,6 +30,14 @@
   background: url('../images/step/step4-active.png') #fff no-repeat center;
 }
 
+.step-page .layui-tab-content {
+  padding: 0;
+}
+
+.step-page .layui-tab-content .layui-tab-item {
+  margin: 30px;
+}
+
 /* 创建问卷 */
 .tab-card {
   padding: 20px 10px;
@@ -72,12 +80,12 @@
 .quest-body .layui-form-label {
   width: 10px;
 }
-.quest-body .layui-form-label.required {
 
-}
-.quest-body .layui-form-label.required::before{
-    content: "*";
-    color: #f96b6b;
+.quest-body .layui-form-label.required {}
+
+.quest-body .layui-form-label.required::before {
+  content: "*";
+  color: #f96b6b;
 }
 
 .quest-body .layui-input-block {
@@ -110,13 +118,6 @@
 .box-inline .type-icon.square-icon {
   border-radius: 5px;
 }
-
-.box-inline .layui-icon {
-  cursor: pointer;
-  color: rgb(181, 181, 181);
-  font-size: 22px;
-}
-
 .option-icon {
   display: inline-block;
   cursor: pointer;
@@ -207,7 +208,8 @@
   background: url(../images/noData.png) no-repeat center;
   background-size: contain;
 }
-.rateInput{
+
+.rateInput {
   width: 50px;
 }
 
@@ -234,33 +236,147 @@
 }
 
 .typeName .type-icon.radio {
-  width: 10px; height: 10px;
+  width: 10px;
+  height: 10px;
   background: url('../images/type-icon.png') -45px -45px;
 }
 
 .typeName .type-icon.checkbox {
-  width: 15px; height: 11px;
+  width: 15px;
+  height: 11px;
   background: url('../images/type-icon.png') -10px -45px;
 }
 
 .typeName .type-icon.text {
-  width: 8px; height: 12px;
+  width: 8px;
+  height: 12px;
   background: url('../images/type-icon.png') -84px -10px;
 }
 
 .typeName .type-icon.rateSingle {
-  width: 17px; height: 15px;
+  width: 17px;
+  height: 15px;
   background: url('../images/type-icon.png') -10px -10px;
 }
 
 .typeName .type-icon.rateMulti {
-  width: 17px; height: 15px;
+  width: 17px;
+  height: 15px;
   background: url('../images/type-icon.png') -47px -10px;
 }
-.outline-wrap{
 
-}
-.outline-item{
+.outline-item {
   border-bottom: 1px solid rgb(181, 181, 181);
   padding: 20px 5px;
+}
+
+.phoneComputer-tab .layui-tab-title {
+  background: #fff;
+  height: 90px;
+  padding: 0 30px;
+}
+
+.phoneComputer-tab .layui-tab-title li {
+  color: #333;
+  font-size: 16px;
+  line-height: 90px;
+  border: 1px solid #d7d7d7;
+  border-width: 0 1px;
+  padding: 0 40px;
+}
+
+.phoneComputer-tab .layui-tab-title .layui-this {
+  color: #c30621;
+}
+
+.phoneComputer-tab .layui-tab-title .layui-this:after {
+  display: none;
+}
+
+.phoneComputer-tab .tab-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.phoneComputer-tab .tab-icon.phone {
+  width: 26px;
+  height: 50px;
+  background: url('../images/phone-computer.png') -10px -77px;
+}
+
+.phoneComputer-tab .tab-icon.computer {
+  width: 49px; height: 47px;
+  background: url('../images/phone-computer.png') -79px -10px;
+}
+
+.phoneComputer-tab .layui-this .tab-icon.phone {
+  width: 26px;
+  height: 50px;
+  background: url('../images/phone-computer.png') -56px -77px;
+}
+
+.phoneComputer-tab .layui-this .tab-icon.computer {
+  width: 49px;
+  height: 47px;
+  background: url('../images/phone-computer.png') -10px -10px;
+}
+.phoneComputer-tab .layui-tab-item .computer{
+  background-image: url(../images/prev-bg.png);
+  background-repeat: no-repeat;
+  background-size: 98% 280px;
+  background-position: left bottom;
+  padding: 60px 60px 300px 60px;
+}
+
+.phone-tabContent{
+  width: 520px;
+  height: 1100px;
+  margin: 30px auto;
+  background: url('../images/phone-bg.png') no-repeat center/cover;
+  position: relative;
+}
+.phone-tabContent .phoneWrap{
+  position: absolute;
+  top: 120px;
+  left: 0;
+  padding: 0 60px;
+  bottom: 140px;
+  right: 0;
+  overflow-y: auto;
+}
+.questTitle{
+  font-size: 24px;
+  color: #c30621;
+  text-align: center;
+}
+.preview-wrap .layui-form-item{
+  border-bottom: 1px solid #d7d7d7;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.preview-wrap .layui-form-label.preview-title{
+  width: 100%;
+  text-align: left;
+}
+.preview-wrap .layui-input-block{
+ margin-left: 40px;
+}
+.preview-wrap .box-inline>div{
+  margin-bottom: 10px;
+}
+.submit-btn{
+  text-align: center;
+  margin-top: 50px;
+}
+.submit-btn button{
+  background-image: -moz-linear-gradient( 90deg, rgb(187,174,158) 0%, rgb(214,210,206) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(187,174,158) 0%, rgb(214,210,206) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(187,174,158) 0%, rgb(214,210,206) 100%);
+  border: 0;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 40px;
+  line-height: 40px;
+  border-radius: 4px;
 }
