@@ -72,6 +72,13 @@
 .quest-body .layui-form-label {
   width: 10px;
 }
+.quest-body .layui-form-label.required {
+
+}
+.quest-body .layui-form-label.required::before{
+    content: "*";
+    color: #f96b6b;
+}
 
 .quest-body .layui-input-block {
   margin-left: 40px;
@@ -113,7 +120,7 @@
 .option-icon {
   display: inline-block;
   cursor: pointer;
-  margin:0 10px;
+  margin: 0 10px;
   vertical-align: middle;
 }
 
@@ -145,13 +152,16 @@
   background: #f0f4f8;
   border-radius: 2px;
   padding: 10px 40px;
+  margin-bottom: 10px;
 }
-.operate-wrap input{
+
+.operate-wrap input {
   margin-right: 5px;
 }
+
 .item-op {
   cursor: pointer;
-  margin:0 20px;
+  margin: 0 20px;
 }
 
 .item-op .item-icon {
@@ -184,15 +194,73 @@
   background: url('../images/item-op.png') -85px -10px;
 }
 
-.item-op a{
+.item-op a {
   text-decoration: underline;
   font-size: 14px;
   color: #666;
 }
-.noData{
+
+.noData {
   width: 350px;
   margin: 150px auto;
   height: 200px;
   background: url(../images/noData.png) no-repeat center;
   background-size: contain;
+}
+.rateInput{
+  width: 50px;
+}
+
+
+.questTypeWrap .typeTitle {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.typeName {
+  display: inline-block;
+  width: 48%;
+  font-size: 14px;
+  line-height: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.type-icon {
+  display: inline-block;
+}
+
+.typeName .type-icon.radio {
+  width: 10px; height: 10px;
+  background: url('../images/type-icon.png') -45px -45px;
+}
+
+.typeName .type-icon.checkbox {
+  width: 15px; height: 11px;
+  background: url('../images/type-icon.png') -10px -45px;
+}
+
+.typeName .type-icon.text {
+  width: 8px; height: 12px;
+  background: url('../images/type-icon.png') -84px -10px;
+}
+
+.typeName .type-icon.rateSingle {
+  width: 17px; height: 15px;
+  background: url('../images/type-icon.png') -10px -10px;
+}
+
+.typeName .type-icon.rateMulti {
+  width: 17px; height: 15px;
+  background: url('../images/type-icon.png') -47px -10px;
+}
+.outline-wrap{
+
+}
+.outline-item{
+  border-bottom: 1px solid rgb(181, 181, 181);
+  padding: 20px 5px;
 }

@@ -1,123 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <title>发起问卷调查</title>
-    <link
-      rel="stylesheet"
-      href="../js/third/layui-v2.5.6/layui/css/layui.css"
-    />
-    <link rel="stylesheet" href="../assets/styles/common.css" />
-    <link rel="stylesheet" href="../assets/styles/questPage.css" />
-  </head>
-  <body>
-    <div class="common-page step-page">
-      <div class="layui-tab" lay-filter="pageTab">
-        <ul class="layui-tab-title layui-row step-top-wrap">
-          <li class="layui-this layui-col-md3 step-item step-item-first" lay-id="11">
-            <i class="step-icon step1"></i>
-            <p class="step-text">选择客户群</p>
-          </li>
-          <li class="layui-col-md3 step-item" lay-id="22">
-            <i class="step-icon step2"></i>
-            <p class="step-text">创建问卷</p>
-          </li>
-          <li class="layui-col-md3 step-item" lay-id="33">
-            <i class="step-icon step3"></i>
-            <p class="step-text">问卷预览</p>
-          </li>
-          <li class="layui-col-md3 step-item step-item-last" lay-id="44">
-            <i class="step-icon step4"></i>
-            <p class="step-text">发布问卷</p>
-          </li>
-        </ul>
-        <div class="layui-tab-content">
-          <div class="layui-tab-item layui-show">
-            <div class="layui-row layui-col-space30" id="dataBoxWrap"></div>
-            <div class="page-bottom-btns">
-              <button
-                type="button"
-                class="layui-btn layui-btn-lg layui-btn-red"
-              >
-                下一步
-              </button>
-            </div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>发起问卷调查</title>
+  <link rel="stylesheet" href="../js/third/layui-v2.5.6/layui/css/layui.css" />
+  <link rel="stylesheet" href="../assets/styles/common.css" />
+  <link rel="stylesheet" href="../assets/styles/questPage.css" />
+</head>
+
+<body>
+  <div class="common-page step-page">
+    <div class="layui-tab" lay-filter="pageTab">
+      <ul class="layui-tab-title layui-row step-top-wrap">
+        <li class="layui-this layui-col-md3 step-item step-item-first" lay-id="11">
+          <i class="step-icon step1"></i>
+          <p class="step-text">选择客户群</p>
+        </li>
+        <li class="layui-col-md3 step-item" lay-id="22">
+          <i class="step-icon step2"></i>
+          <p class="step-text">创建问卷</p>
+        </li>
+        <li class="layui-col-md3 step-item" lay-id="33">
+          <i class="step-icon step3"></i>
+          <p class="step-text">问卷预览</p>
+        </li>
+        <li class="layui-col-md3 step-item step-item-last" lay-id="44">
+          <i class="step-icon step4"></i>
+          <p class="step-text">发布问卷</p>
+        </li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <div class="layui-row layui-col-space30" id="dataBoxWrap"></div>
+          <div class="page-bottom-btns">
+            <button type="button" class="layui-btn layui-btn-lg layui-btn-red" onclick="nextPage1()">
+              下一步
+            </button>
           </div>
-          <div class="layui-tab-item">
-            <div class="layui-row layui-col-space30">
-              <div class="layui-col-md3">
-                <div class="common-card tab-card">
-                  <div class="card-body">
-                    <div
-                      class="layui-tab layui-tab-brief common-tab"
-                      lay-filter="tabBrief"
-                    >
-                      <ul class="layui-tab-title layui-row">
-                        <li class="layui-this layui-col-md6">题型选择</li>
-                        <li class="layui-col-md6">问题大纲</li>
-                      </ul>
-                      <div class="layui-tab-content">
-                        <div class="layui-tab-item layui-show">
-                        </div>
-                        <div class="layui-tab-item">问题大纲</div>
+        </div>
+        <div class="layui-tab-item">
+          <div class="layui-row layui-col-space30">
+            <div class="layui-col-md3">
+              <div class="common-card tab-card">
+                <div class="card-body">
+                  <div class="layui-tab layui-tab-brief common-tab" lay-filter="tabBrief">
+                    <ul class="layui-tab-title layui-row">
+                      <li class="layui-this layui-col-md6">题型选择</li>
+                      <li class="layui-col-md6">问题大纲</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                      <div class="layui-tab-item layui-show">
+                        <ul class="questTypeWrap">
+                          <li>
+                            <p class="typeTitle">选择题</p>
+                            <p>
+                              <span class="typeName" onclick="addQuestItem('radio')">
+                                <i class="type-icon radio"></i>
+                                单选题
+                              </span>
+                              <span class="typeName" onclick="addQuestItem('checkbox')">
+                                <i class="type-icon checkbox"></i>
+                                多选题
+                              </span>
+                            </p>
+                          </li>
+                          <li>
+                            <p class="typeTitle">填空题</p>
+                            <p>
+                              <span class="typeName" onclick="addQuestItem('text')">
+                                <i class="type-icon text"></i>
+                                单项填空
+                              </span>
+                            </p>
+                          </li>
+                          <li>
+                            <p class="typeTitle">评分题</p>
+                            <p>
+                              <span class="typeName" onclick="addQuestItem('rateSingle')">
+                                <i class="type-icon rateSingle"></i>
+                                评分单选
+                              </span>
+                              <span class="typeName" onclick="addQuestItem('rateMulti')">
+                                <i class="type-icon rateMulti"></i>
+                                评分多选
+                              </span>
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="layui-tab-item">
+                        <ul id="outlineWrap" class="outline-wrap">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="layui-col-md9">
-                <div class="common-card quest-card">
-                  <form class="layui-form">
-                    <div class="quest-top">
-                      <p class="quest-title">
-                        问卷标题:
-                      </p>
-                      <div class="layui-form-item">
-                        <input
-                          type="text"
-                          name="title"
-                          placeholder="请输入问卷标题"
-                          class="layui-input"
-                        />
-                      </div>
-                    </div>
-                    <div class="quest-body" id="questBodyWrap"></div>
-                  </form>
-                </div>
-              </div>
             </div>
-            <div class="page-bottom-btns">
-              <button
-                type="button"
-                class="layui-btn layui-btn-lg layui-btn-red"
-              >
-                下一步
-              </button>
+            <div class="layui-col-md9">
+              <div class="common-card quest-card" id="questBodyWrap"></div>
             </div>
           </div>
-          <div class="layui-tab-item">
-            问卷预览
-            <div class="page-bottom-btns">
-              <button
-                type="button"
-                class="layui-btn layui-btn-lg layui-btn-red"
-              >
-                下一步
-              </button>
-            </div>
+          <div class="page-bottom-btns">
+            <button type="button" class="layui-btn layui-btn-lg layui-btn-red" onclick="nextPage2()">
+              下一步
+            </button>
           </div>
-          <div class="layui-tab-item">
-            发布问卷
+        </div>
+        <div class="layui-tab-item">
+          问卷预览
+          <div class="page-bottom-btns">
+            <button type="button" class="layui-btn layui-btn-lg layui-btn-red">
+              下一步
+            </button>
           </div>
+        </div>
+        <div class="layui-tab-item">
+          发布问卷
         </div>
       </div>
     </div>
-    <!-- chart 区域 -->
-    <script id="dataBoxHtml" type="text/html">
+  </div>
+  <!-- chart 区域 -->
+  <script id="dataBoxHtml" type="text/html">
       <div class="layui-col-md12">
         <div class="common-card">
           <div class="card-body">
@@ -152,118 +158,164 @@
       </div>
       {{# }); }}
     </script>
-    <!-- 问卷区域 -->
-    <script id="questBodyHtml" type="text/html">
-      {{#  if(d.length>0){  }}
-        {{#  layui.each(d, function(index, item){ }}
-        <div class="layui-form-item">
-          <div class="input-title-wrap">
-            <label class="layui-form-label">{{index+1}}.</label>
-            <div class="layui-input-block">
-              <input
-                type="text"
-                name="title"
-                placeholder="请填写标题"
-                class="layui-input input-title"
-                value="{{item.itemDesc}}"
-              />
-            </div>
+  <!-- 问卷区域-right -->
+  <script id="questBodyHtml" type="text/html">
+      <form class="layui-form">
+        <div class="quest-top">
+          <p class="quest-title">
+            问卷标题:
+          </p>
+          <div class="layui-form-item">
+            <input
+              type="text"
+              name="title"
+              placeholder="请输入问卷标题"
+              class="layui-input"
+              value="{{d.questTitle}}"
+              onblur="getQuestTitleInput(this)"
+            />
           </div>
-          {{#  if('radio' == item.itemType){ }}
-            {{#  layui.each(item.options, function(ii, obj){ }}
-              <div class="box-inline">
-                <span class="circle-icon type-icon"></span>
-                <input
-                type="text"
-                name="optionDes"
-                placeholder="请填写选项"
-                class="layui-input"
-                value="{{obj.optionDes}}"
-                />
-                <i class="option-icon option-add"></i>
-                <i class="option-icon option-del"></i>
-                <i class="option-icon option-up"></i>
-                <i class="option-icon option-down"></i>
-              </div>
-            {{# }); }}
-          {{#  }else if('checkbox' == item.itemType){ }}
-            {{#  layui.each(item.options, function(ii, obj){ }}
-                <div class="box-inline">
-                  <span class="square-icon type-icon"></span>
+        </div>
+        <div class="quest-body">
+          {{#  if(d.questList.length>0){  }}
+            {{#  layui.each(d.questList, function(index, item){ }}
+            <div class="layui-form-item">
+              <div class="input-title-wrap">
+                <label class="layui-form-label {{item.isRequired?'required':''}}">{{index+1}}.</label>
+                <div class="layui-input-block">
                   <input
-                  type="text"
-                  name="optionDes"
-                  placeholder="请填写选项"
-                  class="layui-input"
-                  value="{{obj.optionDes}}"
+                    type="text"
+                    name="title"
+                    placeholder="请填写标题"
+                    class="layui-input input-title"
+                    value="{{item.itemDesc}}"
+                    onblur="getTitleInput(this,{{index}})"
                   />
-                  <i class="option-icon option-add"></i>
-                  <i class="option-icon option-del"></i>
-                  <i class="option-icon option-up"></i>
-                  <i class="option-icon option-down"></i>
                 </div>
-            {{# }); }}
-          {{#  }else if('text' == item.itemType){ }}
-              <div class="layui-input-block">
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="请填写"
-                  class="layui-input "
-                />
               </div>
-          {{#  }else if('rate-single' == item.itemType){ }}
-            {{#  layui.each(item.options, function(ii, obj){ }}
-              <div class="box-inline">
-                <span class="circle-icon type-icon"></span>
-                <input
-                type="text"
-                name="optionDes"
-                placeholder="请填写选项"
-                class="layui-input"
-                value="{{obj.optionDes}}"
-                />
-                <i class="option-icon option-add"></i>
-                <i class="option-icon option-del"></i>
-                <i class="option-icon option-up"></i>
-                <i class="option-icon option-down"></i>
-              </div>
+              {{#  if('radio' == item.itemType){ }}
+                {{#  layui.each(item.options, function(ii, obj){ }}
+                  <div class="box-inline">
+                    <span class="circle-icon type-icon"></span>
+                    <input
+                    type="text"
+                    name="optionDes"
+                    placeholder="请填写选项"
+                    class="layui-input"
+                    value="{{obj.optionDes}}"
+                    onblur="getOptionInput(this,{{index}},{{ii}})"
+                    />
+                    <i class="option-icon option-add" onclick="addOption({{index}})"></i>
+                    <i class="option-icon option-del" onclick="delOption({{index}},{{ii}})"></i>
+                    <i class="option-icon option-up" onclick="exchangeOption({{index}},{{ii}},{{ii-1}})"></i>
+                    <i class="option-icon option-down" onclick="exchangeOption({{index}},{{ii}},{{ii+1}})"></i>
+                  </div>
+                {{# }); }}
+              {{#  }else if('checkbox' == item.itemType){ }}
+                {{#  layui.each(item.options, function(ii, obj){ }}
+                    <div class="box-inline">
+                      <span class="square-icon type-icon"></span>
+                      <input
+                      type="text"
+                      name="optionDes"
+                      placeholder="请填写选项"
+                      class="layui-input"
+                      value="{{obj.optionDes}}"
+                      onblur="getOptionInput(this,{{index}},{{ii}})"
+                      />
+                      <i class="option-icon option-add" onclick="addOption({{index}})"></i>
+                    <i class="option-icon option-del" onclick="delOption({{index}},{{ii}})"></i>
+                    <i class="option-icon option-up" onclick="exchangeOption({{index}},{{ii}},{{ii-1}})"></i>
+                    <i class="option-icon option-down" onclick="exchangeOption({{index}},{{ii}},{{ii+1}})"></i>
+                    </div>
+                {{# }); }}
+              {{#  }else if('text' == item.itemType){ }}
+                  <div class="layui-input-block">
+                    <input
+                      type="text"
+                      name="title"
+                      class="layui-input "
+                    readonly
+                    />
+                  </div>
+              {{#  }else if('rateSingle' == item.itemType){ }}
+                {{#  layui.each(item.options, function(ii, obj){ }}
+                  <div class="box-inline">
+                    <span class="circle-icon type-icon"></span>
+                    <input
+                    type="text"
+                    name="optionDes"
+                    placeholder="请填写选项"
+                    class="layui-input"
+                    value="{{obj.optionDes}}"
+                    onblur="getOptionInput(this,{{index}},{{ii}})"
+                    />
+                    <input
+                      type="number"
+                      name="rateInput"
+                      class="layui-input rateInput"
+                      value="{{obj.rateNum}}"
+                      onblur="getRateInput(this,{{index}},{{ii}})"
+                      />
+                      <span>分</span>
+                    <i class="option-icon option-add" onclick="addOption({{index}})"></i>
+                    <i class="option-icon option-del" onclick="delOption({{index}},{{ii}})"></i>
+                    <i class="option-icon option-up" onclick="exchangeOption({{index}},{{ii}},{{ii-1}})"></i>
+                    <i class="option-icon option-down" onclick="exchangeOption({{index}},{{ii}},{{ii+1}})"></i>
+                  </div>
+                {{# }); }}
+              {{#  }else if('rateMulti' == item.itemType){ }}
+                {{#  layui.each(item.options, function(ii, obj){ }}
+                    <div class="box-inline">
+                      <span class="square-icon type-icon"></span>
+                      <input
+                      type="text"
+                      name="optionDes"
+                      placeholder="请填写选项"
+                      class="layui-input"
+                      value="{{obj.optionDes}}"
+                      onblur="getOptionInput(this,{{index}},{{ii}})"
+                      />
+                      <input
+                      type="number"
+                      name="rateInput"
+                      class="layui-input rateInput"
+                      value="{{obj.rateNum}}"
+                      onblur="getRateInput(this,{{index}},{{ii}})"
+                      />
+                      <span>分</span>
+                    <i class="option-icon option-add" onclick="addOption({{index}})"></i>
+                    <i class="option-icon option-del" onclick="delOption({{index}},{{ii}})"></i>
+                    <i class="option-icon option-up" onclick="exchangeOption({{index}},{{ii}},{{ii-1}})"></i>
+                    <i class="option-icon option-down" onclick="exchangeOption({{index}},{{ii}},{{ii+1}})"></i>
+                    </div>
+                {{# }); }}
+              {{# } }}
+            </div>
+            <div class="operate-wrap">
+            <span><input type="checkbox" value="{{item.isRequired}}" {{item.isRequired?"checked":""}}  lay-ignore onchange="changeRequired(this,{{index}})">必答</span>
+            <span class="item-op"><i class="item-icon item-link"></i> <a href="javascript:;"> 题目关联</a></span>
+            <span class="item-op" onclick="delItem({{index}})"><i class="item-icon item-del"></i> <a href="javascript:;"> 删除本题</a></span>
+            <span class="item-op" onclick="exchangeItem({{index}},{{index-1}})"><i class="item-icon item-up"></i> <a href="javascript:;"> 上移</a></span>
+            <span class="item-op" onclick="exchangeItem({{index}},{{index+1}})"><i class="item-icon item-down"></i> <a href="javascript:;"> 下移</a></span>
+            </div>
             {{# }); }}
-          {{#  }else if('rate-multi' == item.itemType){ }}
-            {{#  layui.each(item.options, function(ii, obj){ }}
-                <div class="box-inline">
-                  <span class="square-icon type-icon"></span>
-                  <input
-                  type="text"
-                  name="optionDes"
-                  placeholder="请填写选项"
-                  class="layui-input"
-                  value="{{obj.optionDes}}"
-                  />
-                  <i class="option-icon option-add"></i>
-                  <i class="option-icon option-del"></i>
-                  <i class="option-icon option-up"></i>
-                  <i class="option-icon option-down"></i>
-                </div>
-            {{# }); }}
+          {{#  }else{  }}
+            <div class="noData"></div>
           {{# } }}
         </div>
-        <div class="operate-wrap">
-        <span><input type="checkbox" {{item.isRequired?"checked":""}}  lay-ignore>必答</span>
-        <span class="item-op"><i class="item-icon item-link"></i> <a href="javascript:;"> 题目关联</a></span>
-        <span class="item-op"><i class="item-icon item-del"></i> <a href="javascript:;"> 删除本题</a></span>
-        <span class="item-op"><i class="item-icon item-up"></i> <a href="javascript:;"> 上移</a></span>
-        <span class="item-op"><i class="item-icon item-down"></i> <a href="javascript:;"> 下移</a></span>
-        </div>
-        {{# }); }}
-      {{#  }else{  }}
-        <div class="noData"></div>
-      {{# } }}
-     
+      </form>
     </script>
-    <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
-    <script src="../js/third/echarts/echarts.min.js"></script>
-    <script src="../js/common.js"></script>
-    <script src="../js/questionPage.js"></script>
-  </body>
+  <!-- 问卷大纲 -->
+  <script id="outlineHtml" type="text/html">
+      {{#  layui.each(d, function(index, item){ }}
+        <li class="outline-item">{{index+1}}、{{item}}</li>
+      {{# }); }}
+  </script>
+  <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
+  <script src="../js/third/echarts/echarts.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/questionPage.js"></script>
+</body>
+
 </html>
