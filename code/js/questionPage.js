@@ -1,10 +1,11 @@
 //一般直接写在一个js文件中
-layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer'], function () {
+layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer', 'laydate'], function () {
   var laytpl = layui.laytpl,
     $ = layui.jquery,
     table = layui.table,
     element = layui.element,
     layer = layui.layer,
+    laydate = layui.laydate,
     form = layui.form;
 
   /******************************************************* 选择客户群 *******************************************************/
@@ -355,12 +356,30 @@ layui.use(['form', 'laytpl', 'jquery', 'table', 'element', 'layer'], function ()
       renderComputer()
     }
   });
+  /******************************************************* 发布问卷 *******************************************************/
+  laydate.render({
+    elem: '#test1',
+    format: "yyyy/MM/dd"
+  });
+  //复制链接
+  window.copyUrl = function () {
+    var Url2 = document.getElementById("linkInput");
+    Url2.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    layer.msg("已复制好，可贴粘。");
+  
+  }
+  window.openUrl=function(){
+    window.location.href=$('#linkInput').val();
+  }
   /******************************************************* tab操作 *******************************************************/
   element.on('tab(pageTab)', function (obj) {
     if (obj.index == 0) {
       renderStepPage1()
     } else if (obj.index == 1) {
       renderStepPage2()
+    } else if (obj.index == 2) {
+      renderPhone()
     }
   });
   //默认打开tab

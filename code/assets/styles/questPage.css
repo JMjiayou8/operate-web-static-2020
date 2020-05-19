@@ -380,3 +380,10 @@
   line-height: 40px;
   border-radius: 4px;
 }
+.step4-wrap .common-card{
+  margin-bottom: 20px;
+}
+.link-input{
+display: inline-block;
+width: 70%;
+}
