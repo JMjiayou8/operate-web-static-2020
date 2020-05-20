@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>用户看管池详情</title>
+    <link
+      rel="stylesheet"
+      href="../js/third/layui-v2.5.6/layui/css/layui.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/common.css" />
+  </head>
+
+  <body>
+    <div class="common-page">
+      <p class="page-title">
+        用户看管池详情-高价值信号问题
+      </p>
+      <form class="layui-form filter-wrap clearfix">
+        <div class="range-box fl">
+          <i class="date-icon"></i>
+          <input
+            type="text"
+            class="layui-input"
+            id="rangeDate"
+            placeholder="时间范围"
+          />
+        </div>
+        <div class="search-box fr">
+          <input
+            type="text"
+            class="layui-input"
+            id="keywords"
+            placeholder="关键字：手机号码/姓名/标题"
+          />
+          <i
+            class="layui-icon layui-icon-search"
+            onclick="renderTableWrap()"
+          ></i>
+        </div>
+      </form>
+      <div class="layui-row layui-col-space20 preview-list">
+        <div class="layui-col-md3">
+          <div class="common-card">
+            <p class="title">用户数</p>
+            <p class="data" style="color:#ff6d60;"><span class="num">3200</span> <span class="unit">人</span></p>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="common-card">
+            <p class="title">平均APRU值</p>
+            <p class="data" style="color:#0cb4b3;"><span class="unit">￥</span><span class="num">32</span></p>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="common-card">
+            <p class="title">离网率</p>
+            <p class="data" style="color:#fdc811;"><span class="num">12</span> <span class="unit">%</span></p>
+          </div>
+        </div>
+        <div class="layui-col-md3">
+          <div class="common-card">
+            <p class="title">订购率</p>
+            <p class="data" style="color:#7ebf2b;"><span class="num">2</span> <span class="unit">%</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="page-table">
+        <table class="layui-hide" id="tableWrap" lay-filter="tableWrap"></table>
+        <button class="layui-btn layui-btn-red layui-btn-sm bottom-btn" onclick="config()">配置维系策略</button>
+      </div>
+      <div id="detail-wrap" class="layui-hide"></div>
+      <div id="config-wrap" class="layui-hide"></div>
+    </div>
+    <script id="tableBar" type="text/html">
+      <a class="table-btn " lay-event="detail">查询轨迹</a>
+    </script>
+    <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
+    <script src="../js/third/echarts/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/poolDetail.js"></script>
+  </body>
+</html>
