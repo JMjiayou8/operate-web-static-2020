@@ -47,8 +47,9 @@ a {
 .text-center {
   text-align: center;
 }
-.noMargin{
-  margin:0!important;
+
+.noMargin {
+  margin: 0 !important;
 }
 
 /********************* 页面样式 *********************/
@@ -56,11 +57,13 @@ a {
   background: #ebebec;
   padding: 30px;
 }
+
 /* 底部操作按钮区域 */
-.page-bottom-btns{
+.page-bottom-btns {
   padding: 40px 0;
   text-align: center;
 }
+
 /* 常规卡片 */
 .common-card {
   background-color: #fff;
@@ -160,6 +163,7 @@ a {
   border-width: 10px 10px 0;
   border-color: #f66767 transparent transparent;
 }
+
 /* 顶部筛选区域 */
 .filter-wrap {
   margin-bottom: 15px;
@@ -257,6 +261,22 @@ a {
   line-height: 30px;
   padding: 0;
 }
+
+.filter-wrap .search-box {
+  position: relative;
+}
+
+.filter-wrap .search-box .layui-input {
+  min-width: 260px;
+}
+
+.filter-wrap .search-box i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 /* 热力图表格 */
 .hotMap-table {
   width: 280px;
@@ -273,6 +293,7 @@ a {
 .hotMap-table td {
   border-width: 0 0 1px 0;
 }
+
 /* 特征页面-选择区域 */
 .choosed-wrap {
   line-height: 42px;
@@ -299,6 +320,7 @@ a {
   font-size: 18px;
   margin-left: 5px;
 }
+
 /********************* 自定义layui组件样式*********************/
 /* 表格 */
 .common-table .layui-table-view,
@@ -347,20 +369,24 @@ a {
 .common-tab .layui-tab-content {
   padding: 30px 0;
 }
+
 /* 按钮 */
-.layui-btn.layui-btn-lg{
+.layui-btn.layui-btn-lg {
   height: 48px;
   line-height: 48px;
   font-size: 16px;
   border-radius: 4px;
 }
-.layui-btn.layui-btn-red{
+
+.layui-btn.layui-btn-red {
   background-color: #f56868;
 }
-.layui-btn.layui-btn-blue{
+
+.layui-btn.layui-btn-blue {
   background-color: #5b99ea;
 }
-.layui-btn.layui-btn-green{
+
+.layui-btn.layui-btn-green {
   background-color: #01a6bc;
 }
 
@@ -410,13 +436,16 @@ a {
   color: #c30621;
   font-size: 14px;
 }
+
 /* 页面顶部步骤step */
-.step-page{
+.step-page {
   padding: 0;
 }
-.step-page .layui-tab{
+
+.step-page .layui-tab {
   margin: 0;
 }
+
 .step-page .step-top-wrap {
   background-image: -moz-linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
   background-image: -webkit-linear-gradient(0deg, rgb(124, 187, 198) 0%, rgb(131, 166, 209) 100%);
@@ -435,7 +464,8 @@ a {
 .step-page .step-top-wrap .layui-tab-title {
   border: 0;
 }
-.step-page .layui-tab-content{
+
+.step-page .layui-tab-content {
   padding: 20px 30px;
 }
 
@@ -474,8 +504,50 @@ a {
 .step-page .step-item.layui-this .step-icon {
   border: 1px solid #ec6c3f;
 }
+
 .step-page .step-text {
   margin-top: 10px;
   font-size: 18px;
   line-height: 30px;
+}
+
+.table-btn {
+  color: #3d62ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.detail-layer .layui-layer-content {
+  padding: 20px;
+}
+
+.layer-chart-card {
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.layer-chart-card .title {
+  color: #ff6d60;
+  background: #f7f7f7;
+  padding: 0 20px;
+  line-height: 60px;
+}
+
+.layer-chart-card .btn-wrap {
+  padding: 30px 0 20px 0;
+}
+
+.page-table .layui-table-page {
+  text-align: right;
+}
+
+.page-table .layui-laypage .layui-laypage-curr .layui-laypage-em {
+  background: #ed8d75;
+}
+
+.page-table .layui-table-page .layui-laypage a {
+  background: #f5f5f5;
+  margin-right: 10px;
 }
