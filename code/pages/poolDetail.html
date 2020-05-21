@@ -12,6 +12,7 @@
       href="../js/third/layui-v2.5.6/layui/css/layui.css"
     />
     <link rel="stylesheet" href="../assets/styles/common.css" />
+    <link rel="stylesheet" href="../assets/styles/pool.css" />
   </head>
 
   <body>
@@ -46,37 +47,176 @@
         <div class="layui-col-md3">
           <div class="common-card">
             <p class="title">用户数</p>
-            <p class="data" style="color:#ff6d60;"><span class="num">3200</span> <span class="unit">人</span></p>
+            <p class="data" style="color: #ff6d60;">
+              <span class="num">3200</span> <span class="unit">人</span>
+            </p>
           </div>
         </div>
         <div class="layui-col-md3">
           <div class="common-card">
             <p class="title">平均APRU值</p>
-            <p class="data" style="color:#0cb4b3;"><span class="unit">￥</span><span class="num">32</span></p>
+            <p class="data" style="color: #0cb4b3;">
+              <span class="unit">￥</span><span class="num">32</span>
+            </p>
           </div>
         </div>
         <div class="layui-col-md3">
           <div class="common-card">
             <p class="title">离网率</p>
-            <p class="data" style="color:#fdc811;"><span class="num">12</span> <span class="unit">%</span></p>
+            <p class="data" style="color: #fdc811;">
+              <span class="num">12</span> <span class="unit">%</span>
+            </p>
           </div>
         </div>
         <div class="layui-col-md3">
           <div class="common-card">
             <p class="title">订购率</p>
-            <p class="data" style="color:#7ebf2b;"><span class="num">2</span> <span class="unit">%</span></p>
+            <p class="data" style="color: #7ebf2b;">
+              <span class="num">2</span> <span class="unit">%</span>
+            </p>
           </div>
         </div>
       </div>
       <div class="page-table">
         <table class="layui-hide" id="tableWrap" lay-filter="tableWrap"></table>
-        <button class="layui-btn layui-btn-red layui-btn-sm bottom-btn" onclick="config()">配置维系策略</button>
+        <button
+          class="layui-btn layui-btn-red layui-btn-sm bottom-btn"
+          onclick="configDialog()"
+        >
+          配置维系策略
+        </button>
       </div>
+      <!-- 轨迹 -->
       <div id="detail-wrap" class="layui-hide"></div>
-      <div id="config-wrap" class="layui-hide"></div>
+      <!-- 配置 -->
+      <div id="config-wrap" class="layui-hide">
+        <div class="config-page">
+          <form class="layui-form">
+            <p class="title">STEP1 基本信息</p>
+            <div class="layui-form-item">
+              <div class="layui-input-block only-input">
+                <input
+                  type="text"
+                  class="layui-input"
+                  placeholder="请输入看管池名称"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+            <p class="title">STEP2 选择目标用户</p>
+            <div class="choose-user" id="configChooseUserWrap"></div>
+          </form>
+        </div>
+      </div>
     </div>
     <script id="tableBar" type="text/html">
-      <a class="table-btn " lay-event="detail">查询轨迹</a>
+      <a class="table-btn" lay-event="detail">查询轨迹</a>
+    </script>
+    <script id="configChooseUser" type="text/html">
+      <div class="config-part">
+        <div class="config-top clearfix">
+          <span class="title fl">用户属性满足</span>
+          <a class="add-link fr" href="javascript:;" onclick="addConfig1()">
+            <i
+              class="layui-icon layui-icon-addition"
+              style="color: #ff6d60;"
+            ></i
+            >添加
+          </a>
+        </div>
+        <div class="config-body">
+          {{#  layui.each(d.configData.configList1, function(index, item){ }}
+          <div class="layui-form-item ">
+              <div class="layui-input-inline">
+                <div class="config-select clearfix">
+                    <select name="contact{{index}}" value="{{item.option1}}" data-index="{{index}}" >
+                        <option value=""></option>
+                        {{#  layui.each(d.optionList1, function(i, option){ }}
+                          <option value="{{option.value}}" {{#  if(item.option1== option.value){ }}selected {{#  } }}
+                          >{{option.text}}</option>
+                        {{#  }); }}
+                    </select>
+                </div>
+              </div>
+              <div class="layui-input-inline">
+                <div class="config-select clearfix">
+                    <select name="contact{{index}}" value="{{item.option2}}" data-index="{{index}}" >
+                        <option value=""></option>
+                        {{#  layui.each(d.optionList2, function(i, option){ }}
+                          <option value="{{option.value}}" {{#  if(item.option2== option.value){ }}selected {{#  } }}
+                          >{{option.text}}</option>
+                        {{#  }); }}
+                    </select>
+                </div>
+              </div>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" value="{{item.option3}}">
+              </div>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" value="{{item.option4}}">
+              </div>
+              <div class="layui-input-operate">
+                  <i class="layui-icon layui-icon-close" onclick="delConfig1({{index}})"></i>
+              </div>
+            </div>
+          {{#  }); }}
+        </div>
+      </div>
+      <div class="config-part">
+        <div class="config-top clearfix">
+          <span class="title fl">用户行为满足</span>
+          <a class="add-link fr" href="javascript:;" onclick="addConfig2()">
+            <i
+              class="layui-icon layui-icon-addition"
+              style="color: #ff6d60;"
+            ></i
+            >添加
+          </a>
+        </div>
+        <div class="config-body">
+          {{#  layui.each(d.configData.configList2, function(index, item){ }}
+          <div class="layui-form-item ">
+              <!-- <div class="layui-input-inline">
+                <div class="range-box">
+                  <i class="date-icon"></i>
+                  <input
+                    type="text"
+                    class="layui-input"
+                    id="rangeDate"
+                    placeholder="时间范围"
+                  />
+                </div>
+              </div> -->
+              <div class="layui-input-inline">
+                <div class="config-select clearfix">
+                    <select name="contact{{index}}" value="{{item.option2}}" data-index="{{index}}" >
+                        <option value=""></option>
+                        {{#  layui.each(d.optionList3, function(i, option){ }}
+                          <option value="{{option.value}}" {{#  if(item.option2== option.value){ }}selected {{#  } }}
+                          >{{option.text}}</option>
+                        {{#  }); }}
+                    </select>
+                </div>
+              </div>
+              <div class="layui-input-inline">
+                <div class="config-select clearfix">
+                    <select name="contact{{index}}" value="{{item.option3}}" data-index="{{index}}" >
+                        <option value=""></option>
+                        {{#  layui.each(d.optionList4, function(i, option){ }}
+                          <option value="{{option.value}}" {{#  if(item.option3== option.value){ }}selected {{#  } }}
+                          >{{option.text}}</option>
+                        {{#  }); }}
+                    </select>
+                </div>
+              </div>
+              <div class="layui-input-operate">
+                  <i class="layui-icon layui-icon-close" onclick="delConfig2({{index}})"></i>
+              </div>
+            </div>
+          {{#  }); }}
+        </div>
+      </div>
     </script>
     <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
     <script src="../js/third/echarts/echarts.min.js"></script>

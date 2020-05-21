@@ -1,0 +1,36 @@
+/* 看管池页面样式 */
+.layui-layer-title{
+  color: #c30621!important;
+}
+.layui-layer-content .config-page .title{
+  color: #c30621;
+  margin-bottom: 20px;
+}
+
+.choose-user{
+
+}
+.choose-user .config-part{
+  background: #f1f4f7;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.choose-user  .config-top{
+  color: #5a5a5a;
+  font-size: 16px;
+}
+
+.choose-user  .config-top .title{
+  color: #5a5a5a;
+}
+.choose-user  .config-top .add-link{
+  color: #5a5a5a;
+}
+.layui-input-operate{
+  line-height: 38px;
+  cursor: pointer;
+}
+.layui-input-block.only-input{
+  margin-left: 45px;
+}
