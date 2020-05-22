@@ -388,7 +388,12 @@ a {
 .common-tab .layui-tab-content {
   padding: 30px 0;
 }
-
+.layui-tab-brief>.layui-tab-title .layui-this{
+  color: #d94056;
+}
+.layui-tab-brief>.layui-tab-title .layui-this:after{
+  border-bottom: 2px solid #d94056;
+}
 /* 按钮 */
 .layui-btn.layui-btn-lg {
   height: 48px;
@@ -407,6 +412,12 @@ a {
 
 .layui-btn.layui-btn-green {
   background-color: #01a6bc;
+}
+.layui-btn.layui-btn-orange{
+  background-color: #f0aa5b;
+}
+.layui-btn.layui-btn-gray{
+  background-color: #c2c2c2;
 }
 
 /* 边框风格checkbox */
@@ -596,3 +607,28 @@ bottom: 0;
   font-size: 28px;
 }
 
+
+
+.common-page .layui-upload-drag {
+  background: #fafafa;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+  border: 0;
+  border-radius: 5px;
+}
+
+.common-page .layui-upload-drag .upload-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url('../images/upload.png') no-repeat center/cover;
+}
+
+.common-page .layui-upload-drag .upload-text {
+  color: #979797;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-top: 20px;
+}

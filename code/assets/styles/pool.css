@@ -18,7 +18,7 @@
   width: 1px;
   background: #d2d2d2;
   top: 0;
-  left: -20px;
+  left: -30px;
   bottom: 0;
 }
 
@@ -50,6 +50,7 @@
 .choose-user .config-top {
   color: #5a5a5a;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .choose-user .config-top .title {
@@ -182,4 +183,50 @@
 
 .trail-item .optionParam {
   color: #f19149;
+}
+
+/********************** 创建看管池  **********************/
+
+.step-page .step-item .step-icon.step1 {
+  background: url('../images/step/step2.png') #fff no-repeat center;
+}
+
+.step-page .step-item .step-icon.step2 {
+  background: url('../images/step/step1.png') #fff no-repeat center;
+}
+
+.step-page .step-item .step-icon.step3 {
+  background: url('../images/step/step3.png') #fff no-repeat center;
+}
+
+
+.step-page .step-item.layui-this .step-icon.step1 {
+  background: url('../images/step/step2-active.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step2 {
+  background: url('../images/step/step1-active.png') #fff no-repeat center;
+}
+
+.step-page .step-item.layui-this .step-icon.step3 {
+  background: url('../images/step/step3-active.png') #fff no-repeat center;
+}
+
+.step-page .layui-tab-content {
+  padding: 0;
+}
+
+.step-page .layui-tab-content .layui-tab-item {
+  margin: 30px;
+}
+.config-wrap-title{
+  font-size: 16px;
+  color: #b1b1b1;
+  margin-bottom: 15px;
+}
+
+.only-input{
+  max-width: 70%;
+  border-radius: 5px;
+  display: inline-block;
 }
