@@ -1,7 +1,6 @@
-//一般直接写在一个js文件中
 layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function () {
   var table = layui.table,
-  form=layui.form,
+    form = layui.form,
     laydate = layui.laydate,
     laytpl = layui.laytpl,
     $ = layui.jquery;
@@ -9,17 +8,26 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
     date: '',
     keywords: ''
   }
-  var configData={
+  var configData = {
     configList1: [{
       option1: '0',
       option2: '1',
-      option3:'',
-      option4:'',
+      option3: '',
+      option4: '',
+    }, {
+      option1: '0',
+      option2: '1',
+      option3: '',
+      option4: '',
     }],
     configList2: [{
       option1: '0',
       option2: '1',
-      option3:'1'
+      option3: '1'
+    }, {
+      option1: '0',
+      option2: '1',
+      option3: '1'
     }],
   }
   // 渲染页面图表
@@ -75,13 +83,14 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
       layer.open({
         type: 1,
         title: '接触轨迹',
-        area: '1000px',
+        area: '800px',
         offset: '100px',
         skin: 'detail-layer',
         shadeClose: true,
         content: $('#detail-wrap'),
         success: function () {
           $('#detail-wrap').removeClass('layui-hide')
+          renderTrail()
         }
       });
     }
@@ -91,7 +100,7 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
       type: 1,
       title: '配置维系策略',
       area: '1000px',
-      offset: '100px',
+      offset: '50px',
       skin: 'detail-layer',
       shadeClose: true,
       content: $('#config-wrap'),
@@ -101,6 +110,7 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
       }
     });
   }
+  // 渲染配置页面
   function renderConfigUser () {
     var data = {
       optionList1: [
@@ -132,7 +142,7 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
           value: '1',
           text: '未办理'
         }
-        
+
       ],
       optionList4: [
         {
@@ -140,38 +150,101 @@ layui.use(['form', 'laytpl', 'laydate', 'jquery', 'table', 'laytpl'], function (
           text: '携号转网'
         }
       ],
-      configData:configData
+      configData: configData
     }
     var getTpl = configChooseUser.innerHTML, wrap = document.getElementById('configChooseUserWrap');
     laytpl(getTpl).render(data, function (html) {
       wrap.innerHTML = html;
       form.render();
+      data.configData.configList2.forEach(function (item, index) {
+        laydate.render({
+          elem: '#rangeDate' + index,
+          type: 'date',
+          range: true,
+
+        });
+
+      })
+
     });
   }
-  window.addConfig1=function(){
+  window.addConfig1 = function () {
     configData.configList1.push({
       option1: '0',
       option2: '1',
-      option3:'',
-      option4:'',
+      option3: '',
+      option4: '',
     })
     renderConfigUser()
   }
-  window.addConfig2=function(){
+  window.addConfig2 = function () {
     configData.configList2.push({
       option1: '0',
       option2: '1',
-      option3:'1',
+      option3: '1',
     })
     renderConfigUser()
   }
-  window.delConfig1=function(index){
-    configData.configList1.splice(index,1)
-    renderConfigUser()
+  window.delConfig1 = function (index) {
+    if (configData.configList1.length > 2) {
+      configData.configList1.splice(index, 1)
+      renderConfigUser()
+    } else {
+      layer.msg('至少保留两条配置')
+    }
   }
-  window.delConfig2=function(index){
-    configData.configList2.splice(index,1)
-    renderConfigUser()
+  window.delConfig2 = function (index) {
+    if (configData.configList2.length > 2) {
+      configData.configList2.splice(index, 1)
+      renderConfigUser()
+    } else {
+      layer.msg('至少保留两条配置')
+    }
+  }
+  $(document).on('click', '.real-icon', function (evt) {
+    var text = $(evt.target).text();
+    $(evt.target).text(text == '且' ? '或' : '且')
+  })
+
+  function renderTrail () {
+    var data = [
+      {
+        date: '2020/01/01',
+        title: '异动模型预测',
+        option: {
+          title: '',
+          param: ''
+        }
+      },
+      {
+        date: '2020/01/01',
+        title: '短信接触',
+        option: {
+          title: '推荐产品',
+          param: '赠送红包'
+        }
+      },
+      {
+        date: '2020/01/01',
+        title: '短信接触',
+        option: {
+          title: '推荐产品',
+          param: '赠送红包'
+        }
+      }, {
+        date: '2020/01/01',
+        title: '短信接触',
+        option: {
+          title: '用户离网/用户连续三个月账单稳定/用户APRU值稳定',
+          param: ''
+        }
+      }
+    ]
+    var getTpl = trailHtml.innerHTML, wrap = document.getElementById('trail-wrap');
+    laytpl(getTpl).render(data, function (html) {
+      wrap.innerHTML = html;
+
+    });
   }
   $(function () {
     renderTableWrap()

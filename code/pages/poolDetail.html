@@ -44,7 +44,7 @@
         </div>
       </form>
       <div class="layui-row layui-col-space20 preview-list">
-        <div class="layui-col-md3">
+        <div class="layui-col-md3 layui-col-sm3">
           <div class="common-card">
             <p class="title">用户数</p>
             <p class="data" style="color: #ff6d60;">
@@ -52,7 +52,7 @@
             </p>
           </div>
         </div>
-        <div class="layui-col-md3">
+        <div class="layui-col-md3 layui-col-sm3">
           <div class="common-card">
             <p class="title">平均APRU值</p>
             <p class="data" style="color: #0cb4b3;">
@@ -60,7 +60,7 @@
             </p>
           </div>
         </div>
-        <div class="layui-col-md3">
+        <div class="layui-col-md3 layui-col-sm3">
           <div class="common-card">
             <p class="title">离网率</p>
             <p class="data" style="color: #fdc811;">
@@ -68,7 +68,7 @@
             </p>
           </div>
         </div>
-        <div class="layui-col-md3">
+        <div class="layui-col-md3 layui-col-sm3">
           <div class="common-card">
             <p class="title">订购率</p>
             <p class="data" style="color: #7ebf2b;">
@@ -87,9 +87,11 @@
         </button>
       </div>
       <!-- 轨迹 -->
-      <div id="detail-wrap" class="layui-hide"></div>
+      <div id="detail-wrap" class="layui-hide">
+        <div id="trail-wrap" class="trail-wrap"></div>
+      </div>
       <!-- 配置 -->
-      <div id="config-wrap" class="layui-hide">
+      <div id="config-wrap" class="layui-hide config-layer-content">
         <div class="config-page">
           <form class="layui-form">
             <p class="title">STEP1 基本信息</p>
@@ -108,13 +110,22 @@
             <div class="choose-user" id="configChooseUserWrap"></div>
           </form>
         </div>
+        <div class="page-bottom-btns">
+          <button class="layui-btn layui-btn-blue">预估人数</button>
+          <button class="layui-btn layui-btn-red">配置完成</button>
+        </div>
       </div>
     </div>
     <script id="tableBar" type="text/html">
       <a class="table-btn" lay-event="detail">查询轨迹</a>
     </script>
+    <!-- 配置内容 -->
     <script id="configChooseUser" type="text/html">
+      <div class="line">
+          <a herf="javascript" class="real-icon">且</a>
+      </div>
       <div class="config-part">
+
         <div class="config-top clearfix">
           <span class="title fl">用户属性满足</span>
           <a class="add-link fr" href="javascript:;" onclick="addConfig1()">
@@ -126,6 +137,9 @@
           </a>
         </div>
         <div class="config-body">
+          <div class="line">
+            <a herf="javascript" class="real-icon">且</a>
+           </div>
           {{#  layui.each(d.configData.configList1, function(index, item){ }}
           <div class="layui-form-item ">
               <div class="layui-input-inline">
@@ -175,19 +189,22 @@
           </a>
         </div>
         <div class="config-body">
+          <div class="line">
+            <a herf="javascript" class="real-icon">且</a>
+          </div>
           {{#  layui.each(d.configData.configList2, function(index, item){ }}
           <div class="layui-form-item ">
-              <!-- <div class="layui-input-inline">
+              <div class="layui-input-inline">
                 <div class="range-box">
                   <i class="date-icon"></i>
                   <input
                     type="text"
                     class="layui-input"
-                    id="rangeDate"
+                    id="rangeDate{{index}}"
                     placeholder="时间范围"
                   />
                 </div>
-              </div> -->
+              </div>
               <div class="layui-input-inline">
                 <div class="config-select clearfix">
                     <select name="contact{{index}}" value="{{item.option2}}" data-index="{{index}}" >
@@ -217,6 +234,19 @@
           {{#  }); }}
         </div>
       </div>
+    </script>
+    <!-- 轨迹 -->
+    <script id="trailHtml" type="">
+      {{#  layui.each(d, function(index, item){ }}
+      <div class="trail-item">
+        <span class="date">{{item.date}}</span>
+        <span class="icon"></span>
+        <span class="title">{{item.title}}</span>
+        <span class="optionTitle">{{item.option.title}}</span>
+        <span class="optionParam">{{item.option.param}}</span>
+      </div>
+      {{# }) }}
+      <div class="line"></div>
     </script>
     <script src="../js/third/layui-v2.5.6/layui/layui.js"></script>
     <script src="../js/third/echarts/echarts.min.js"></script>

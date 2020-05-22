@@ -1,36 +1,185 @@
 /* 看管池页面样式 */
-.layui-layer-title{
-  color: #c30621!important;
+.layui-layer-title {
+  color: #c30621 !important;
 }
-.layui-layer-content .config-page .title{
+
+.layui-layer-content .config-page .title {
   color: #c30621;
   margin-bottom: 20px;
 }
 
-.choose-user{
-
+.choose-user {
+  position: relative;
+  margin-left: 45px;
 }
-.choose-user .config-part{
+
+.choose-user>.line {
+  position: absolute;
+  width: 1px;
+  background: #d2d2d2;
+  top: 0;
+  left: -20px;
+  bottom: 0;
+}
+
+.choose-user>.line .real-icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d2d2d2;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left: -15px;
+}
+
+.choose-user .config-part {
   background: #f1f4f7;
   padding: 15px;
   border-radius: 4px;
   margin-bottom: 20px;
+  padding-left: 40px;
+  position: relative;
 }
-.choose-user  .config-top{
+
+
+
+.choose-user .config-top {
   color: #5a5a5a;
   font-size: 16px;
 }
 
-.choose-user  .config-top .title{
+.choose-user .config-top .title {
   color: #5a5a5a;
 }
-.choose-user  .config-top .add-link{
+
+.choose-user .config-top .add-link {
   color: #5a5a5a;
 }
-.layui-input-operate{
+
+.choose-user .config-body {
+  position: relative;
+}
+
+.choose-user .config-body .line {
+  position: absolute;
+  width: 1px;
+  background: #d2d2d2;
+  top: 0;
+  left: -20px;
+  bottom: 0;
+}
+
+.choose-user .config-body .line .real-icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d2d2d2;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: -15px;
+}
+
+.layui-input-operate {
   line-height: 38px;
   cursor: pointer;
 }
-.layui-input-block.only-input{
+
+.layui-input-block.only-input {
   margin-left: 45px;
+}
+
+.config-layer-content .config-page {
+  overflow-y: auto;
+  height: 540px;
+}
+
+.config-layer-content .page-bottom-btns {
+  padding: 10px 0;
+}
+
+.config-page .layui-form-item .layui-input-inline {
+  width: auto;
+}
+
+.config-page .layui-input {
+  border-radius: 5px;
+}
+
+.config-page .range-box {
+  min-width: 230px;
+  display: inline-block;
+  position: relative;
+}
+
+.config-page .range-box input {
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+  padding-left: 30px;
+  color: #666666;
+}
+
+.config-page .range-box .date-icon {
+  width: 14px;
+  height: 15px;
+  background: url('../images/icons.png') -10px -47px;
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 10px;
+}
+
+/* 轨迹 */
+.trail-wrap {
+  position: relative;
+  padding: 20px 0;
+  z-index: 1;
+}
+
+.trail-wrap .line {
+  display: block;
+  background: #e5e5e5;
+  width: 1px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 127px;
+  z-index: -1;
+}
+
+.trail-item {
+  color: #5a5a5a;
+  font-size: 16px;
+  margin: 30px 0;
+}
+
+.trail-item span {
+  display: inline-block;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.trail-item .icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #f19149;
+  border-radius: 50%;
+  margin: 0 20px;
+}
+
+.trail-item .title {
+  color: #c30621;
+  margin-right: 20px;
+}
+
+.trail-item .optionParam {
+  color: #f19149;
 }
